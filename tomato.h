@@ -46,6 +46,7 @@
 
 - (IBAction)openAction:sender;
 - (IBAction)cancelAction:sender;
+- (IBAction)openStatsAction:sender;
 - (IBAction)startAction:sender;
 - (IBAction)quitAction:sender;
 

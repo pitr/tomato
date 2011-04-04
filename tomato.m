@@ -167,6 +167,12 @@
 	}
 }
 
+// opens stats window
+- (IBAction) openStatsAction:(id)sender {
+	[statsWindow makeKeyAndOrderFront:sender];
+	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+}
+
 // closes window
 - (IBAction) cancelAction:(id)sender {
 	[window orderOut:sender];
