@@ -3,12 +3,17 @@
    <channel>
       <title>Tomato Changelog</title>
       <link>https://github.com/pitr/tomato/raw/master/appcast.xml</link>
-      <description>Initial release.</description>
+      <description>Simple Pomodoro Technique app.</description>
       <language>en</language>
          <item>
             <title>Version 0.1 (first release)</title>
             <pubDate>Sun, 03 Apr 2011 10:00:00 +0000</pubDate>
             <enclosure url="https://github.com/downloads/pitr/tomato/Tomato-v0.1.zip" sparkle:version="0.1" length="669006" type="application/octet-stream" />
+         </item>
+         <item>
+            <title>Version 0.2 (asks for task name at the end)</title>
+            <pubDate>Wed, 14 Jan 2015 19:00:00 +0000</pubDate>
+            <enclosure url="https://github.com/pitr/tomato/releases/download/0.2/Tomato.zip" sparkle:version="0.2" length="666030" type="application/octet-stream" />
          </item>
 
    </channel>
