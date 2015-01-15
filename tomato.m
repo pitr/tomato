@@ -3,11 +3,9 @@
 @implementation tomato
 
 @synthesize statsWindow;
-
 @synthesize window;
 @synthesize combo;
 @synthesize submit;
-@synthesize cancel;
 @synthesize statusMenu;
 @synthesize startMenuItem;
 
@@ -141,10 +139,21 @@
 		timer = nil;
 	}
 	[self updateStatusBar];
-	[speech startSpeakingString:@"Well done!"];
+  [speech startSpeakingString:@"Well done!"];
+
+  [window makeKeyAndOrderFront:nil];
+  [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+}
+
+-(void) saveAction:(id)sender {
+  // get task name from combo box
+  NSString * currentTask = [combo stringValue];
+
+  // close window
+  [window orderOut:sender];
 
 	// log
-	NSString * secondsPassed = [NSString stringWithFormat:@"%d", START_COUNTER - timeCounter];
+	NSString * secondsPassed = [NSString stringWithFormat:@"%ld", START_COUNTER - timeCounter];
 
 	if (secondsPassed > 0) {
 		NSManagedObject * contentObject = [NSEntityDescription insertNewObjectForEntityForName:@"Time" inManagedObjectContext: managedObjectContext];
@@ -157,63 +166,64 @@
 	}
 }
 
-// opens window OR stops counter
-- (IBAction) openAction:(id)sender {
-	if (started == FALSE) {
-		[window makeKeyAndOrderFront:sender];
-		[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	} else {
-		[self stopCounter];
-	}
-}
-
-// opens stats window
-- (IBAction) openStatsAction:(id)sender {
-	[statsWindow makeKeyAndOrderFront:sender];
-	[[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-}
-
 // closes window
 - (IBAction) cancelAction:(id)sender {
 	[window orderOut:sender];
 }
 
-// start timer
+// start/stop timer
 - (IBAction) startAction:(id)sender {
-	// get task name from combo box
-	currentTask = [combo stringValue];
-
-	// check if exists
-	NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
-	[fetch setEntity: tasks];
-	[fetch setPredicate: [NSPredicate predicateWithFormat:@"name = %@", currentTask]];
-	NSError * error;
-	NSArray * results = [managedObjectContext executeFetchRequest:fetch error:&error];
-	[fetch release];
-
-	if (results == nil || [results count] == 0) {
-		// insert
-		NSManagedObject * newTask = [NSEntityDescription insertNewObjectForEntityForName:@"Task" inManagedObjectContext: managedObjectContext];
-		[newTask setValue:currentTask forKey:@"name"];
-		[managedObjectContext processPendingChanges];
-
-		[self persist];
-	}
-
-	// start counter
-	[self startCounter];
-
-	// close window
-	[window orderOut:sender];
+  if (started) {
+    [self stopCounter];
+  } else {
+    [self startCounter];
+  }
 }
 
-// stop timer
-- (void) perSecond {}
+// opens stats window
+- (IBAction) openStatsAction:(id)sender {
+  [statsWindow makeKeyAndOrderFront:sender];
+  [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+}
+
+- (IBAction) closeStatsAction:(id)sender {
+  [statsWindow orderOut:sender];
+}
+
+- (IBAction) exportStatsAction:(id)sender {
+
+  NSAlert *alert = [[NSAlert alloc] init];
+  [alert addButtonWithTitle:@"OK"];
+  [alert setMessageText:@"Export functionality is incomplete"];
+  [alert setInformativeText:@"If you need it, please contribute at\nhttps://github.com/pitr/tomato"];
+  [[alert.buttons objectAtIndex:0] setKeyEquivalent:@"\e"];
+  [alert setAlertStyle:NSInformationalAlertStyle];
+  [alert runModal];
+  [alert release];
+
+  return;
+
+
+  NSMutableString *data = [NSMutableString string];
+
+  // TODO: add code here
+
+  // Set the default name for the file and show the panel.
+  NSSavePanel* panel = [NSSavePanel savePanel];
+  [panel setNameFieldStringValue:@"Pomodoro Tasks.csv"];
+  [panel setAllowedFileTypes:@[@"csv"]];
+  [panel beginSheetModalForWindow:statsWindow completionHandler:^(NSInteger result){
+    if (result == NSFileHandlingPanelOKButton) {
+      NSURL* file = [panel URL];
+      [data writeToURL:file atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }
+  }];
+}
 
 // update status menu
 - (void) updateStatusBar {
 	if (started) {
-		[statusItem setTitle:[NSString stringWithFormat:@"%d:%.2d", timeCounter/60, timeCounter%60]];
+		[statusItem setTitle:[NSString stringWithFormat:@"%ld:%.2ld", timeCounter/60, timeCounter%60]];
 		[statusItem setImage:nil];
 		[startMenuItem setTitle:@"Stop"];
 	} else {
@@ -253,13 +263,6 @@
 
 // quiting
 - (IBAction)quitAction:(id)sender {
-
-	[self stopCounter];
-
-	if (managedObjectContext) {
-		[managedObjectContext commitEditing];
-	}
-
 	[[NSApplication sharedApplication] terminate:sender];
 }
 
@@ -281,14 +284,10 @@
 	[statsWindow setLevel:3];
 	[window setLevel:3]; // on top of others
 	[window setShowsResizeIndicator:NO]; // no resize
-
-	tasks = [[managedObjectModel entitiesByName] objectForKey:@"Task"];
 }
 
 - (void)dealloc {
-
 	[icon release];
-	[tasks release];
 	[tick release];
 	[statusItem release];
     [managedObjectContext release];

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,22 +13,23 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		CAACB15F1347B5FB00C7F58C /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = CAACB15E1347B5FB00C7F58C /* tomato.png */; };
-		CAACB1EF1347BFF700C7F58C /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = CAACB1EE1347BFF700C7F58C /* tick.wav */; };
-		CAACB2451347C3B300C7F58C /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CAACB2441347C3B300C7F58C /* icon.icns */; };
+		CA0622DA1A6578B10084A327 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = CA0622D91A6578B10084A327 /* icon.icns */; };
+		CA0622DC1A6578BC0084A327 /* tick.wav in Resources */ = {isa = PBXBuildFile; fileRef = CA0622DB1A6578BC0084A327 /* tick.wav */; };
+		CA0622DE1A6578C80084A327 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = CA0622DD1A6578C80084A327 /* tomato.png */; };
 		CAB4D86E134954420014DE56 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB4D86D134954420014DE56 /* Sparkle.framework */; };
-		CAB4D8931349551D0014DE56 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAB4D86D134954420014DE56 /* Sparkle.framework */; };
+		CAB4D8931349551D0014DE56 /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = CAB4D86D134954420014DE56 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CAB4D897134955200014DE56 /* CopyFiles */ = {
+		CAB4D897134955200014DE56 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CAB4D8931349551D0014DE56 /* Sparkle.framework in CopyFiles */,
+				CAB4D8931349551D0014DE56 /* Sparkle.framework in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -47,9 +48,9 @@
 		77C8280C06725ACE000B614F /* tomato.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = tomato.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Tomato-Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = "Tomato-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Tomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAACB15E1347B5FB00C7F58C /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tomato.png; path = ../pomodoro/Pomodoro/images/tomato.png; sourceTree = SOURCE_ROOT; };
-		CAACB1EE1347BFF700C7F58C /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = tick.wav; path = ../pomodoro/Pomodoro/sounds/tick.wav; sourceTree = SOURCE_ROOT; };
-		CAACB2441347C3B300C7F58C /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../pomodoro/Pomodoro/images/icon.icns; sourceTree = SOURCE_ROOT; };
+		CA0622D91A6578B10084A327 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		CA0622DB1A6578BC0084A327 /* tick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tick.wav; sourceTree = "<group>"; };
+		CA0622DD1A6578C80084A327 /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
 		CAB4D86D134954420014DE56 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,9 +128,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CAACB2441347C3B300C7F58C /* icon.icns */,
-				CAACB1EE1347BFF700C7F58C /* tick.wav */,
-				CAACB15E1347B5FB00C7F58C /* tomato.png */,
+				CA0622D91A6578B10084A327 /* icon.icns */,
+				CA0622DB1A6578BC0084A327 /* tick.wav */,
+				CA0622DD1A6578C80084A327 /* tomato.png */,
 				8D1107310486CEB800E47090 /* Tomato-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				2F7446970DB6B7EA00F9684A /* MainMenu.xib */,
@@ -164,7 +165,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				CAB4D897134955200014DE56 /* CopyFiles */,
+				CAB4D897134955200014DE56 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -185,8 +186,12 @@
 				ORGANIZATIONNAME = "Tomato Factory";
 			};
 			buildConfigurationList = 26FC0A880875C7B200E6366F /* Build configuration list for PBXProject "Tomato" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* tomato */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -202,10 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				CA0622DE1A6578C80084A327 /* tomato.png in Resources */,
 				2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */,
-				CAACB15F1347B5FB00C7F58C /* tomato.png in Resources */,
-				CAACB1EF1347BFF700C7F58C /* tick.wav in Resources */,
-				CAACB2451347C3B300C7F58C /* icon.icns in Resources */,
+				CA0622DA1A6578B10084A327 /* icon.icns in Resources */,
+				CA0622DC1A6578BC0084A327 /* tick.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +252,7 @@
 		26FC0A850875C7B200E6366F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -263,6 +268,7 @@
 				INFOPLIST_FILE = "Tomato-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Tomato;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -270,6 +276,7 @@
 		26FC0A860875C7B200E6366F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -282,6 +289,7 @@
 				INFOPLIST_FILE = "Tomato-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = Tomato;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -289,26 +297,24 @@
 		26FC0A890875C7B200E6366F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		26FC0A8A0875C7B200E6366F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

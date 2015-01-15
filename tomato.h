@@ -2,39 +2,35 @@
 
 #define START_COUNTER (60*25)
 
-@interface tomato : NSObject 
+@interface tomato : NSObject
 {
-    NSWindow *window;
-	NSWindow *statsWindow;
-	NSComboBox *combo;
-	NSButton *submit;
-	NSButton *cancel;
-	NSMenu *statusMenu;
-	NSMenuItem *startMenuItem;
+  NSWindow *window;
+  NSWindow *statsWindow;
+  NSComboBox *combo;
+  NSButton *submit;
+  NSMenu *statusMenu;
+  NSMenuItem *startMenuItem;
 
-	NSStatusItem* statusItem;
+  NSStatusItem* statusItem;
 
-    NSPersistentStoreCoordinator *persistentStoreCoordinator;
-    NSManagedObjectModel *managedObjectModel;
-    NSManagedObjectContext *managedObjectContext;
+  NSPersistentStoreCoordinator *persistentStoreCoordinator;
+  NSManagedObjectModel *managedObjectModel;
+  NSManagedObjectContext *managedObjectContext;
 
-	Boolean started;
-	NSInteger timeCounter;
-	NSString * currentTask;
+  Boolean started;
+  NSInteger timeCounter;
 
-	NSEntityDescription* tasks;
-	NSSound* tick;
-	NSTimer* timer;
-	NSImage* icon;
+  NSSound* tick;
+  NSTimer* timer;
+  NSImage* icon;
 
-	NSSpeechSynthesizer* speech;
+  NSSpeechSynthesizer* speech;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSWindow *statsWindow;
 @property (assign) IBOutlet NSComboBox *combo;
 @property (assign) IBOutlet NSButton *submit;
-@property (assign) IBOutlet NSButton *cancel;
 @property (assign) IBOutlet NSMenu *statusMenu;
 @property (assign) IBOutlet NSMenuItem *startMenuItem;
 
@@ -44,14 +40,15 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
-- (IBAction)openAction:sender;
 - (IBAction)cancelAction:sender;
-- (IBAction)openStatsAction:sender;
+- (IBAction)saveAction:sender;
 - (IBAction)startAction:sender;
 - (IBAction)quitAction:sender;
+- (IBAction)openStatsAction:sender;
+- (IBAction)closeStatsAction:sender;
+- (IBAction)exportStatsAction:sender;
 
 - (void) updateStatusBar;
-- (void) perSecond;
 - (void) startCounter;
 - (void) stopCounter;
 
